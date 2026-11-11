@@ -1,6 +1,4 @@
-// -*- mode: glsl -*-
-
-const light_vs = /*glsl*/ `#version 300 es
+const light_vs =  /*glsl*/ `#version 300 es
     precision mediump float;
     layout(location = 0) in vec4 position;
     layout(location = 1) in vec4 normal;
@@ -126,7 +124,7 @@ const sky_vs = /*glsl*/ `#version 300 es
     in vec4 position;
     uniform mat4 pmat;
     uniform mat4 vmat;
-    out mat4 inversevp;
+    flat out mat4 inversevp;
 
     void main(){
         inversevp = inverse(vmat)*inverse(pmat);
@@ -138,7 +136,7 @@ const sky_fs = /*glsl*/ `#version 300 es
     precision mediump float;
     uniform vec2 resolution;
     uniform samplerCube cubemap;
-    in mat4 inversevp;
+    flat in mat4 inversevp;
     out vec4 fragColor;
 
     void main(){
