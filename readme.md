@@ -1,7 +1,7 @@
 # Mingl
 
 #### mini webgl library 
-[demo]()
+[demo](https://orazdow.github.io/mingl/)
 
 Mingl is a webgl library contained in [minigl.js](minigl.js)
 
