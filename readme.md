@@ -5,9 +5,9 @@
 
 Mingl is a webgl library contained in [minigl.js](minigl.js)
 
-It operates on thea model of program objects with geometry and shaders. These are specified by the properies `arrays`, `shaders` and `uniforms`. The specification is similar to [twgl](https://twgljs.org/).
+It operates on program objects with properties `arrays`, `shaders` and `uniforms`. The specification is similar to [twgl](https://twgljs.org/).
 
-It's intended for use with [dat.gui](https://github.com/dataarts/dat.gui) and provides a wapper to simplify the specification of gui controls. This along with an OBJ loader are in `/lib`.
+It's intended for use with [dat.gui](https://github.com/dataarts/dat.gui) and provides a wrapper to simplify the specification of gui controls. This along with an OBJ loader are in `/lib`.
 
 The primary functions are:
     `createShaderProgram` 
@@ -43,7 +43,7 @@ const fs = `#version 300 es
     out vec4 fragColor;
     
     void main(){
-        vec2 uv = gl_FragCoord.xy/resolution.xy*3.33;
+        vec2 uv = gl_FragCoord.xy/resolution.xy;
         vec3 col = 0.5 + 0.5*cos(time + uv.xyx*scale + vec3(0., 2., 3.));
         fragColor = vec4(col, 1);
     }
@@ -61,7 +61,7 @@ const pgm = {
         fs: fs
     },
     uniforms: {
-        scale: .5
+        scale: .66
     },
     setup: (gl, pgm) => {},
 };
@@ -71,8 +71,8 @@ pgm.gui = {
     open: true,
     fields: [
         {
-            scale: [0.5, 0.1, 2, 0.01],
-            onChange: (val)=>{ pgm.uniforms.scale = val;}
+            scale: [0.66, 0.1, 5, 0.01],
+            onChange: (val)=>{pgm.uniforms.scale = val;}
         }
     ]
 };
